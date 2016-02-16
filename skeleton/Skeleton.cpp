@@ -7,9 +7,9 @@
 using namespace llvm;
 
 namespace {
-  struct CountPrintf : public FunctionPass {
+  struct SkeletonPass : public FunctionPass {
     static char ID;
-    CountPrintf() : FunctionPass(ID) {}
+    SkeletonPass() : FunctionPass(ID) {}
 
     // Runs on every function call, independently
     virtual bool runOnFunction(Function &F) {
@@ -31,14 +31,14 @@ namespace {
   };
 }
 
-char CountPrintf::ID = 0;
+char SkeletonPass::ID = 0;
 
 // Automatically enable the pass, curtesy of Adrian Sampson,
 // http://adriansampson.net/blog/clangpass.html
-static void registerCountPrintf(const PassManagerBuilder &,
+static void registerSkeletonPass(const PassManagerBuilder &,
                          legacy::PassManagerBase &PM) {
-  PM.add(new CountPrintf());
+  PM.add(new SkeletonPass());
 }
 static RegisterStandardPasses
   RegisterMyPass(PassManagerBuilder::EP_EarlyAsPossible,
-                 registerCountPrintf);
+                 registerSkeletonPass);
