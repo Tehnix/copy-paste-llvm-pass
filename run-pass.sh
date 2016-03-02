@@ -8,4 +8,4 @@ cd build
 echo "---- Make is running ----" \
     && make \
     && echo "\n---- Pass is running ----" \
-    && /usr/local/opt/llvm/bin/clang -Xclang -load -Xclang ../build/skeleton/libSkeletonPass.* ../TestCode.c
+    && clang-3.7 -Xclang -load -Xclang ../build/skeleton/libSkeletonPass.* ../TestCode.c
