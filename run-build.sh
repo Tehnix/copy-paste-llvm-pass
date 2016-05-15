@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Set the path to the homebrew LLVM cmake when running cmake and make
 mkdir -p build \
     && cd build \
