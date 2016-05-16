@@ -7,5 +7,5 @@ export LDFLAGS="-L/usr/local/opt/llvm/lib -lc++abi"
 cd build \
     && echo "---- Make is running ----" \
     && make \
-    && echo "\n---- Pass is running ----" \
-    && clang-3.7 -Xclang -load -Xclang ../build/skeleton/libSkeletonPass.* ../TestCode.c
+    && echo "---- Pass is running ----" \
+    && clang-3.7 -g -Xclang -load -Xclang ../build/skeleton/libSkeletonPass.* ../test/DetectSimilarCalls.c
